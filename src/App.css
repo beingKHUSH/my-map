@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .App-logo {
@@ -30,3 +32,12 @@
     transform: rotate(360deg);
   }
 }
+
+.SideMenuSection {
+  overflow-y: auto;
+}
+
+.MapSection {
+
+}
+

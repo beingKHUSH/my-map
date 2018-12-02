@@ -5,16 +5,18 @@ class Map extends Component {
    	render() {
 	   	const GoogleMapExample = withGoogleMap(props => (
 			<GoogleMap
-			defaultCenter = { { lat: 29.0588, lng: 76.0856 } }
+			defaultCenter = { { lat: 28.7041 , lng: 77.1025 } }
 			defaultZoom = { 12 }
 			>
-				<Marker position={{lat: 29.0588, lng: 76.0856}}></Marker>
+				{this.props.nearByHotels.map(h => (
+					<Marker position={{lat: h.venue.location.lat, lng: h.venue.location.lng }}></Marker>
+				))}
 			</GoogleMap>
 		));
 		return(
-			<div>
+			<div style={{ height: `100%`}}>
 				<GoogleMapExample
-				  containerElement={ <div style={{ height: `100vh`, width: '100vw' }} /> }
+				  containerElement={ <div style={{ height: `100%`, width: '100%' }} /> }
 				  mapElement={ <div style={{ height: `100%`, width: `100%`  }} /> }
 				/>
 			</div>
