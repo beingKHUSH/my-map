@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  display: flex;
+  display: flex;s
   flex-wrap: wrap;
 }
 
@@ -41,3 +41,28 @@
 
 }
 
+.listHotels {
+  list-style: none;
+  text-align: left;
+  padding: 5px 8px;
+  background: #8BC34A;
+  box-shadow: 0px 0px 1px 1px grey;
+}
+
+.listHotels:hover , .listHotels:focus {
+  background: #8BC34A; 
+  opacity: 0.9;
+}
+
+.listItems {
+  padding-left: 0;
+}
+
+.inputContainer {
+  padding: 15px 0;
+}
+
+.inputContainer input {
+  padding: 0 15px;
+  height: 30px;
+}

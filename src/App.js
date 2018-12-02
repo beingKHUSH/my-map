@@ -8,9 +8,10 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			hotels: []
+			hotels: [],
+			focusedMarker: []
 		}
-	}
+	}s
 
 	componentDidMount() {
 	    this.getVenues()
@@ -35,14 +36,24 @@ class App extends Component {
 			console.log("ERROR! "+ error)
 		})
 	}
+
+	showMarker = (hotelName) => {
+		let focusedMarker
+		focusedMarker = this.state.hotels.filter(h => h.venue.name === hotelName)
+		this.setState({
+			focusedMarker: focusedMarker
+		})
+	}
+
 	render() {
 	    return (
 			<div className="App">
 				<div className="SideMenuSection" style={{width: '20%' , height: '100vh'}}>
-					<SideMenu nearByHotels={this.state.hotels}/>
+					<SideMenu nearByHotels={this.state.hotels} displayMarker={this.showMarker.bind(this)}/>
 				</div>
 				<div className="MapSection" style={{width: '80%' , height: '100vh'}}>
-					<Map nearByHotels={this.state.hotels}/>
+					<Map nearByHotels={this.state.hotels} focusedMarker={this.state.focusedMarker
+					}/>
 				</div>
 			</div>
 	    );
