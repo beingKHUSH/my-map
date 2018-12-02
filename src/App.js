@@ -11,7 +11,7 @@ class App extends Component {
 			hotels: [],
 			focusedMarker: []
 		}
-	}s
+	}
 
 	componentDidMount() {
 	    this.getVenues()
@@ -22,7 +22,7 @@ class App extends Component {
 	    const parameters = {
 			client_id: "ML0RA0EONGHAF30E5FDWX4YKPS42XJ1JM1X0B003S4XGTNOP",
 			client_secret:"SE2SYNM5IP4WJ1ODXVGC4QRZ3MQXEQIC240J1A1DQQK2FIER",
-			query:"food",
+			query:"hotel",
 			near:"Delhi",
 			v: "20182411"
 	    }
