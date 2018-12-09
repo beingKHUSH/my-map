@@ -1,68 +1,229 @@
 .App {
-  text-align: center;
-  display: flex;s
-  flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    height: 100vh;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.credit {
+  font-size: 0.5em;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-title {
+  font-size: 1.5em;
+}
+.App-intro {
+  font-size: large;
+}
+.menu-btn {
+  width: 35px;
+  height: 50px;
+  top: 12px;
+  left: 14px;
+  background: #3c2b24;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  z-index: 15;
+  font-size: 3.7em;
+  font-weight: 900;
+  cursor: pointer;
+  position: absolute;
+  color: #CDDC39;
+  padding: 0 12px;
+}
+.menu-btn-hidden {
+  display: none;
+}
+.sidebar {
+  order: 1;
+  width: 200px;
+  position: absolute;
+  z-index: 10;
+  transform: translateX(-220px);
+  padding: 0 10px;
+  background: linear-gradient(#CDDC39,#8BC34A);
+  opacity: 0.92;
+  height: 100vh;
+  transition: transform 0.5s;
+  overflow: scroll;
+  font-size: 0.65em;
+}
+.sidebar-expanded {
+  transform: translateX(0px);
+}
+.close-sidebar {
+  float: right;
+  color: #343434;
+  font-size: 2em;
+  padding: 9px;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 9px;
+  cursor: pointer;
+  background: none;
+  border: none;  
+}
+.sidebar > div > input {
+  width: 94%;
+  height: 24px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 1px 1px brown;
+  padding: 1px 7px;
+  margin: 9px -4px;
+}
+.sidebar > div > label {
+  font-size: 2.4em;
+  color: #795548;
+  display: block;
+  width: 100%;
+}
+.sidebar > div > label,
+.sidebar > div > input,
+.sidebar > ul {
+  position: relative;
+  top: 35px;
+  display: flex;
+  flex-flow: column;
+}
+.sidebar > ul {
+  list-style-type: none;
+}
+.sidebar li {
+  font-size: 1.2em;
+  color: brown;
+  line-height: 2.3em;
+}
+.sidebar li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.map {
+  order: 2;
+  width: 100%;
+  height: 100%;
+}
+.details-modal {
+  opacity: 0;
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  z-index: 15;
+  top: 25%;
+  left: 24%;
+  padding: 0 10px;
+  padding-top: 20px;
+  font-size: 0.85em;
+  color: #795548;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: linear-gradient(#8BC34A,#CDDC39);
+  overflow: auto;
+  transition: opacity 0.5s;
+}
+.details-modal a,
+.data {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.SideMenuSection {
-  overflow-y: auto;
-}
-
-.MapSection {
-
-}
-
-.listHotels {
-  list-style: none;
-  text-align: left;
-  padding: 5px 8px;
-  background: #8BC34A;
-  box-shadow: 0px 0px 1px 1px grey;
-}
-
-.listHotels:hover , .listHotels:focus {
-  background: #8BC34A; 
-  opacity: 0.9;
-}
-
-.listItems {
-  padding-left: 0;
-}
-
-.inputContainer {
-  padding: 15px 0;
-}
-
-.inputContainer input {
-  padding: 0 15px;
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  float: right;
+  width: 30px;
   height: 30px;
+  font-size: 1.7em;
+  background-color: #8BC34A;
+  border: none;
+  color: #eee7e7;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media only screen and (max-width: 550px) {
+  .App {
+    flex-direction: column;
+  }  
+  #map {
+    width: 100%;
+    bottom: 0;
+    height: 88%;
+  }        
+  .App-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .App-title {
+    font-size: 3.5vw;
+  }
+  .credit {
+    font-size: 1.8vw;
+  }
+  .menu-btn {
+    width: 30px;
+    height: 30px;
+    z-index: 15;
+    font-size: 7vw;
+    font-weight: 900;
+    cursor: pointer;
+    position: absolute;
+    color: white;
+  }   
+  .sidebar { 
+    width: 130px;
+  }
+  .sidebar ul {
+    padding-left: 0;
+  }
+  .sidebar > div > label {
+    font-size: 1.8em;
+  }
+  .close-sidebar {
+    font-size: 3vw;
+  }
+  .sidebar li {
+    font-size: 2.5vw;
+    line-height: 2em;
+  }
+  #search-venue {
+    width:90%;
+    height:10%;
+  }
+  .details-modal {
+    position: absolute;
+    width: 30%;
+    height: 25%;
+    font-size: 1.8vw;
+  }
+}
+@media screen and (min-width: 551px ) and (max-width: 690px) {
+  .App {
+    flex-direction: column;
+  }
+  .App-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+  } 
+  .sidebar {  
+    width: 130px;
+  }
+  .close-sidebar {
+    font-size: 3vw;
+  }
+  .sidebar li {
+    font-size: 2vw;
+    line-height: 2em;
+  }
+  #search-venue {
+    width:90%;
+    height:10%;
+  }
+  .details-modal {
+    position: absolute;
+    width: 30%;
+    height: 35%;    
+  }
 }
